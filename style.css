@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(192, 203, 236);
+    text-align: center;
+
+}
+#app{
+    width: 450px;
+    height: 550px;
+    background-color: rgba(152, 160, 204, 0.726);
+    box-shadow: 0 0px 25px 2px rgb(34, 34, 34);
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+    
+}
+#box{
+    margin: 15px;
+}
+p{  
+    margin-top: 25px;
+    font-size: 20px;
+    font-family:Georgia, Times, 'Times New Roman', serif;
+}
+
+.calculator-input input{
+    width:200px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgb(152, 160, 204);;
+    color: white;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#feed{
+    text-align: left;
+    margin-left: 30px;
+}
+#total{
+    color:red;
+    font-size:xx-large
+}

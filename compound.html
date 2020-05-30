@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Awesome Calculator</title>
+</head>
+<body>
+    <div id="app">
+        <h3>COMPOUND INTEREST</h3>
+    <simple>
+    </simple>
+    </div>
+
+
+<script>
+    Vue.component('simple' , {
+    template:`
+        <div id="container">
+            <div class="calculator-input">
+                <div id="box"> 
+                    Principal 
+                    <br> 
+                    <input v-model="principal" type="number" placeholder="Principal"> 
+                    <br>
+                    Time(per year)
+                    <br>
+                    <input v-model="time" type="number" placeholder="Time">
+                    <br>
+                    Rate 
+                    <br>
+                    <input v-model="rate" type="number" placeholder="Rate">
+                    <br>
+                    Number
+                    <br>
+                    <input v-model="numb" type="number" placeholder="Number">
+                    <br>
+                </div>
+                <div id="feed">
+                    <i> Principal: {{ principal }}</i> <br>
+                    <i>Time: {{ time }} </i><br>
+                    <i>Rate: {{ rate }}</i><br>
+                    <i>Numb: {{ numb }}</i>
+                    <p> Your Compound interest is {{ results.toFixed(0) }} </p>
+                    <p id= "total" v-show = "totalPayBack"> Your PayBack is {{ totalPayBack.toFixed(0) }} </p> 
+                <div>
+            </div>
+            <a href="index.html">Simple Interest</a>
+        </div>`,
+    data(){
+        return {  
+        principal: '',
+        rate: '',
+        time: '',
+        numb:''
+        }
+    },
+    computed: {
+        results()
+        {
+            return parseInt(this.principal) * 
+             [[ 1 + (parseInt(this.rate) / parseInt(this.numb*100))] ** 
+                (parseInt(this.numb) * parseInt(this.time))]
+             -      parseInt(this.principal)
+        },
+        totalPayBack() 
+        {
+             return parseInt(this.principal) * 
+             [[ 1 + (parseInt(this.rate) / parseInt(this.numb*100))] ** (parseInt(this.numb) * parseInt(this.time))]
+        }
+    }
+});
+
+var app = new Vue ({
+    el: "#app",
+});
+</script>
+</body>
+</html>

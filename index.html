@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Awesome Calculator</title>
+</head>
+<body>
+    <div id="app">
+        <h3>SIMPLE INTEREST</h3>
+    <simple>
+    </simple>
+    </div>
+
+
+<script>
+    Vue.component('simple' , {
+    template:`
+        <div id="container">
+            <div class="calculator-input">
+                
+                <div id="box"> 
+                    Principal 
+                    <br> 
+                    <input v-model="principal" type="number" placeholder="Principal"> 
+                    <br>
+                    Time(per year)
+                    <br>
+                    <input v-model="time" type="number" placeholder="Time">
+                    <br>
+                    Rate 
+                    <br>
+                    <input v-model="rate" type="number" placeholder="Rate">
+                    <br>
+                </div>
+                <div id="feed">
+                    <i> Principal: {{ principal }}</i> <br>
+                    <i>Time: {{ time }} </i><br>
+                    <i>Rate: {{ rate }}</i>
+                    <p> Your simple interest is {{ results }} </p>
+                    <p id= "total" v-show = "totalPayBack"> Your PayBack is {{ totalPayBack }} </p> 
+                </div>
+            </div>
+            <a href="compound.html">Compound Interest</a>
+        </div>`,
+    data(){
+        return {  
+        principal: '',
+        rate: '',
+        time: ''
+        }
+    },
+    computed: {
+        results() {
+             return (parseInt(this.principal) * parseInt(this.rate) * parseInt(this.time)) /100
+        },
+        totalPayBack(){
+            return parseInt(this.principal) + parseInt(this.results)
+        }
+    }
+});
+
+var app = new Vue ({
+    el: "#app",
+});
+</script>
+</body>
+</html>
